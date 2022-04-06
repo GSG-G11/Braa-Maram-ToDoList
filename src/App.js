@@ -9,7 +9,17 @@ import { v4 as uuidv4 } from 'uuid';
     task:[
       {id:uuidv4(),task:"create to do app"},
       {id:uuidv4(),task:"create components"}
-    ]
+    ],
+
+  }
+  getTasks = (item) => {
+    item.id = uuidv4();
+   const taskItem = this.state.task;
+   console.log(taskItem);
+   taskItem.push(item);
+  this.setState({task:taskItem})
+  console.log(this.state.task);
+
   }
 render(){
   
@@ -17,7 +27,7 @@ render(){
   return (
     <div className="App">
      <h3>to do list</h3>
-     <AddToDo />
+     <AddToDo func={this.getTasks}/>
      <ToDoList task={task} />
     </div>
   );
