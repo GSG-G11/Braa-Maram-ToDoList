@@ -10,14 +10,6 @@ const ToDoList = ({ task , func ,complite,updateTask}) => {
         <span className="date">{task.date}</span>
         <i  onClick={()=>func(task.id)} className="fas fa-trash icon"></i>
         <i  onClick={()=>updateTask(task.id)} className="fas fa-edit"></i>
-      {/* <div key={task.id} className="container">
-          <input type='checkbox' checked={task.isComplite} onChange={()=>complite(index)} />
-        <span> {task.task}</span>
-        <span>{task.date}</span>
-        <i  onClick={()=>func(task.id)} className="fas fa-trash"></i>
-        <i  onClick={()=>updateTask(task.id)} className="fas fa-edit"></i>
-      </div> */}
-
       </div>
     
     );
