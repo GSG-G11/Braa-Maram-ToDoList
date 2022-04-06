@@ -1,38 +1,98 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@300&family=League+Gothic&family=Nunito+Sans:wght@200&family=Poppins:wght@200&family=Red+Hat+Mono:ital,wght@0,500;1,500&family=Roboto+Mono:wght@300;400&family=Roboto+Serif:ital,wght@0,500;1,400&display=swap');
+
+.container{
+  margin: auto;
+  width: 85%;
+}
+.title {
   text-align: center;
+  color:#450fa8 ;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: bold;
+  font-size: 3rem;
+  text-shadow: 9px 2px #a47efc
 }
+.to-do-form{
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  border: 1px solid #fff;
+  padding: 30px;
+  border-radius: 5px;
+  width: 600px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.to-do-form form{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
 
-.App-link {
-  color: #61dafb;
+.to-do-form form input , .to-do-form form button {
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #450fa8 ;
+  outline: 0;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.to-do{
+  position: absolute;
+  top: 57%;
+  left: 50%; 
+ transform: translate(-50%,-50%);
+ width: 600px;
+}
+.to-do-list {
+margin-bottom: 10px;
+border: 1px solid #a47efc;
+padding: 10px;
+background-color: #d8c7ff;
+color: #000;
+display: flex;
+justify-content: space-between;
+box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.to-do-form input[type='text']{
+width: 41%;
+}
+.to-do-form button[type='submit']{
+  background-color: transparent;
+  border:1px solid #450fa8 ;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: 0.9s all ease-in-out;
+  color:#450fa8 ;
+}
+.to-do-form button[type='submit']:hover{
+background-color:#450fa8  ;
+color: #fff;
+}
+
+/**************  Media Query*******************/
+@media (min-width:320px ) and (max-width:500px){
+  .title{
+font-size: 2rem;
   }
-  to {
-    transform: rotate(360deg);
+  .to-do-form{
+    width: 300px;
   }
+  .to-do-form form{
+   display: block;
+   width: 50%;
+   margin: auto;
+  }
+  .to-do-form input[type='text']{
+    width: 100%;
+    margin-bottom: 10px;
+    }
+    .to-do-form input[type='datetime-local']{
+      margin-bottom: 10px;
+    }
+    .to-do{
+      width: 300px;
+      top: 73%;
+    }
 }

@@ -21,11 +21,12 @@ class AddToDo extends Component {
         const {task,date} = this.state;
         
         return (
-            <div>
+            <div className='to-do-form'>
                 <form onSubmit={this.handleSubmit}>
                     <input name="task" value ={task} type="text" onChange={this.handleChange} required />
                     <input name="date" value ={date} type="datetime-local" onChange={this.handleChange} required />
-                   <input type="submit" />
+                   {/* <input type="submit" /> */}
+                   <button type='submit'> Add</button>
                 </form>
             </div>
         );
