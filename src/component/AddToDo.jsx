@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 
 class AddToDo extends Component {
-  
+
     state={
         task:''
     }
@@ -28,7 +28,6 @@ class AddToDo extends Component {
             </div>
         );
     }
-   
 };
 
 export default AddToDo;

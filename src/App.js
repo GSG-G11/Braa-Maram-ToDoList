@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 
  class App extends Component {
 
- 
   state={
     task:[
       {id:uuidv4(),task:"create to do app"},
@@ -16,20 +15,25 @@ import { v4 as uuidv4 } from 'uuid';
   getTasks = (item) => {
     item.id = uuidv4();
    const taskItem = this.state.task;
-   console.log(taskItem);
    taskItem.push(item);
   this.setState({task:taskItem})
-  console.log(this.state.task);
-
   }
+
+
+deleteTask=(id)=>{
+const taskList = this.state.task.filter((item)=>{
+  return item.id !==id
+})
+this.setState({task:taskList})
+}
+
 render(){
-  
   const {task} = this.state;
   return (
     <div className="App">
      <h3>to do list</h3>
      <AddToDo func={this.getTasks}/>
-     <ToDoList task={task} />
+     <ToDoList task={task} func={this.deleteTask} />
     </div>
   );
 }
