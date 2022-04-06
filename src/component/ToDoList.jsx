@@ -1,32 +1,24 @@
 import React from "react";
 const ToDoList = ({ task , func ,complite,updateTask}) => {
-    //date
-//   let separator = "/";
-//   let newDate = new Date();
-//   let date = newDate.getDate();
-//   let month = newDate.getMonth() + 1;
-//   let year = newDate.getFullYear();
-//   const dataMon = `${year}${separator}${
-//     month < 10 ? `0${month}` : `${month}`
-//   }${separator}${date}`;
-
 //show task
   const tasklist = task.map((task,index) => {
     return (
-      <div key={task.id} className="container">
-          <input type='checkbox' checked={task.isComplite} onChange={()=>complite(index)} />
-        <span> {task.task}</span>
-        <span>{task.date}</span>
-        <i  onClick={()=>func(task.id)} className="fas fa-trash"></i>
+    
+      <div key={task.id} className='to-do-list'>
+        <input className="complete" type='checkbox' checked={task.isComplite} onChange={()=>complite(index)}  placeholder="What "/>
+        <span className="task"> {task.task}</span>
+        <span className="date">{task.date}</span>
+        <i  onClick={()=>func(task.id)} className="fas fa-trash icon"></i>
         <i  onClick={()=>updateTask(task.id)} className="fas fa-edit"></i>
       </div>
+    
     );
   });
 
   // new Date(taskEdit.date).toISOString();
 
  
-  return <div>{tasklist}</div>;
+  return <div className='to-do'>{tasklist}</div>;
 };
 
 export default ToDoList;

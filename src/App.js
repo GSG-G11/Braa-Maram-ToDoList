@@ -1,8 +1,8 @@
-import React ,{Component} from "react";
+import React, { Component } from "react";
 import AddToDo from "./component/AddToDo";
 import ToDoList from "./component/ToDoList";
-import { v4 as uuidv4 } from 'uuid';
-import './App.css';
+import { v4 as uuidv4 } from "uuid";
+import "./App.css";
 
  class App extends Component {
 
@@ -27,13 +27,12 @@ itemTask[index].isComplite = !itemTask[index].isComplite
 this.setState({task:itemTask})
   }
 
-deleteTask=(id)=>{
-const taskList = this.state.task.filter((item)=>{
-  return item.id !==id
-})
-this.setState({task:taskList})
-}
-
+  deleteTask = (id) => {
+    const taskList = this.state.task.filter((item) => {
+      return item.id !== id;
+    });
+    this.setState({ task: taskList });
+  };
 updateTask = (id) => {
   // const taskUpdate = this.state.task.filter((item)=>{
   //   return item.id !==id

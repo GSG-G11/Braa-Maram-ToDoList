@@ -23,13 +23,13 @@ this.state={
     }
     render(){
         const {task,date} = this.state;
-        console.log(this.props,"helllllo");
         return (
             <div className='to-do-form'>
                 <form onSubmit={this.handleSubmit}>
+                
                     <input name="task" value ={this.props.taskEdit ? this.props.taskEdit.task : task} type="text" onChange={this.handleChange} required />
                     <input name="date" value ={this.props.taskEdit ? this.props.taskEdit.date : date} type="datetime-local" onChange={this.handleChange} required />
-                   <input type="submit" />
+                    <button type='submit'> Add</button>
                 </form>
             </div>
         );
