@@ -1,17 +1,29 @@
+import React ,{Component} from "react";
 import AddToDo from "./component/AddToDo";
 import ToDoList from "./component/ToDoList";
+import { v4 as uuidv4 } from 'uuid';
 
+ class App extends Component {
 
-function App() {
+ 
+  state={
+    task:[
+      {id:uuidv4(),task:"create to do app"},
+      {id:uuidv4(),task:"create components"}
+    ]
+  }
+render(){
+  
+  const {task} = this.state;
   return (
     <div className="App">
      <h3>to do list</h3>
      <AddToDo />
-     <ToDoList />
+     <ToDoList task={task} />
     </div>
   );
+}
 
-  
 }
 
 export default App;
