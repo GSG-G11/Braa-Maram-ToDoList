@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 
 class AddToDo extends Component {
-    
+
     render(){
         return (
             <div>
@@ -9,7 +9,6 @@ class AddToDo extends Component {
             </div>
         );
     }
-   
 };
 
 export default AddToDo;

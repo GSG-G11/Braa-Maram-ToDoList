@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from 'uuid';
 
  class App extends Component {
 
- 
   state={
     task:[
       {id:uuidv4(),task:"create to do app"},
