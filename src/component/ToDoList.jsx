@@ -1,21 +1,22 @@
 import React from "react";
-const ToDoList = ({ task , func }) => {
+const ToDoList = ({ task , func ,complite}) => {
     //date
-  let separator = "/";
-  let newDate = new Date();
-  let date = newDate.getDate();
-  let month = newDate.getMonth() + 1;
-  let year = newDate.getFullYear();
-  const dataMon = `${year}${separator}${
-    month < 10 ? `0${month}` : `${month}`
-  }${separator}${date}`;
+//   let separator = "/";
+//   let newDate = new Date();
+//   let date = newDate.getDate();
+//   let month = newDate.getMonth() + 1;
+//   let year = newDate.getFullYear();
+//   const dataMon = `${year}${separator}${
+//     month < 10 ? `0${month}` : `${month}`
+//   }${separator}${date}`;
 
 //show task
-  const tasklist = task.map((task) => {
+  const tasklist = task.map((task,index) => {
     return (
       <div key={task.id}>
+          <input type='checkbox' checked={task.isComplite} onChange={()=>complite(index)} />
         <span> {task.task}</span>
-        <span>{dataMon}</span>
+        <span>{task.date}</span>
         <i  onClick={()=>func(task.id)} className="fas fa-trash"></i>
       </div>
     );

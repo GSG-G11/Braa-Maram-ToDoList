@@ -3,7 +3,8 @@ import React,{Component} from 'react';
 class AddToDo extends Component {
 
     state={
-        task:''
+        task:'',
+        date:''
     }
 
     handleChange = (event) => {
@@ -14,15 +15,16 @@ class AddToDo extends Component {
     handleSubmit = (event) =>{
         event.preventDefault();
        this.props.func(this.state);
-       this.setState({task:''})
+       this.setState({task:'',date:''})
     }
     render(){
-        const {task} = this.state;
+        const {task,date} = this.state;
         
         return (
             <div>
                 <form onSubmit={this.handleSubmit}>
-                    <input name="task" value ={task} type="text" onChange={this.handleChange} />
+                    <input name="task" value ={task} type="text" onChange={this.handleChange} required />
+                    <input name="date" value ={date} type="datetime-local" onChange={this.handleChange} />
                    <input type="submit" />
                 </form>
             </div>

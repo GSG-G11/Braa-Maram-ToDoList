@@ -7,10 +7,9 @@ import { v4 as uuidv4 } from 'uuid';
 
   state={
     task:[
-      {id:uuidv4(),task:"create to do app"},
-      {id:uuidv4(),task:"create components"}
+      {id:uuidv4(),task:"create to do app",date:'4/4/2022',isComplite:false},
+      {id:uuidv4(),task:"create components",date:'4/4/2022',isComplite:true}
     ],
-
   }
   getTasks = (item) => {
     item.id = uuidv4();
@@ -19,6 +18,11 @@ import { v4 as uuidv4 } from 'uuid';
   this.setState({task:taskItem})
   }
 
+  toggleComplete=(index)=>{
+const itemTask = [...this.state.task]
+itemTask[index].isComplite = !itemTask[index].isComplite
+this.setState({task:itemTask})
+  }
 
 deleteTask=(id)=>{
 const taskList = this.state.task.filter((item)=>{
@@ -32,8 +36,8 @@ render(){
   return (
     <div className="App">
      <h3>to do list</h3>
-     <AddToDo func={this.getTasks}/>
-     <ToDoList task={task} func={this.deleteTask} />
+     <AddToDo func={this.getTasks} />
+     <ToDoList task={task} func={this.deleteTask} complite={this.toggleComplete} />
     </div>
   );
 }
