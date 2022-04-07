@@ -70,6 +70,13 @@ width: 41%;
 background-color:#450fa8  ;
 color: #fff;
 }
+.no-data{
+  align-items: center;
+  color: #450fa8;
+  width: 50%;
+  margin: auto;
+  font-size: 20px;
+}
 
 /**************  Media Query*******************/
 @media (min-width:320px ) and (max-width:500px){

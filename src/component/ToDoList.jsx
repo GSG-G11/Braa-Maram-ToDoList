@@ -22,7 +22,7 @@ const ToDoList = ({ task, func, complite, updateTask }) => {
       );
     })
   ) : (
-    <p> No Tasks To Show ^^</p>
+    <p className="no-data"> No Tasks To Show ^^</p>
   );
 
   // new Date(taskEdit.date).toISOString();
