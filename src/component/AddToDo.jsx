@@ -25,7 +25,7 @@ class AddToDo extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <input name="task" value ={task} type="text" onChange={this.handleChange} required />
                     <input name="date" value ={date} type="datetime-local" onChange={this.handleChange} required />
-                   <input type="submit" />
+                   <input type="submit" value='add' />
                 </form>
             </div>
         );
