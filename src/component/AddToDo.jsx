@@ -1,11 +1,15 @@
 import React,{Component} from 'react';
 
 class AddToDo extends Component {
+  constructor(props){
+super(props)
 
-    state={
-        task:'',
-        date:''
-    }
+this.state={
+    task:'',
+    date:props.taskEdit ? props.taskEdit.date : ''
+}
+  }
+  
 
     handleChange = (event) => {
         const { name, value } = event.target;
@@ -19,17 +23,18 @@ class AddToDo extends Component {
     }
     render(){
         const {task,date} = this.state;
-        
         return (
-            <div>
+            <div className='to-do-form'>
                 <form onSubmit={this.handleSubmit}>
-                    <input name="task" value ={task} type="text" onChange={this.handleChange} required />
-                    <input name="date" value ={date} type="datetime-local" onChange={this.handleChange} required />
-                   <input type="submit" value='add' />
+
+                    <input name="task" value ={this.props.taskEdit ? this.props.taskEdit.task : task} type="text" onChange={this.handleChange} required />
+                    <input name="date" value ={this.props.taskEdit ? this.props.taskEdit.date : date} type="datetime-local" onChange={this.handleChange} required />
+                    <button type='submit'> Add</button>
+
                 </form>
             </div>
         );
     }
 };
-
+// new Date(taskEdit.date).toISOString()
 export default AddToDo;
