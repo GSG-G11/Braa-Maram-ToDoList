@@ -1,10 +1,7 @@
 import React,{Component} from 'react';
 
 class AddToDo extends Component {
-  constructor(props){
-super(props)
 
-  }
     render(){
         const {handleChange,task,date,handleSubmit} = this.props
         return (
