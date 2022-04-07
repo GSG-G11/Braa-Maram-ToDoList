@@ -11,14 +11,25 @@ import "./App.css";
       {id:uuidv4(),task:"create to do app",date:'4/4/2022',isComplite:false,itemEdit:false},
       {id:uuidv4(),task:"create components",date:'4/4/2022',isComplite:true,itemEdit:false}
     ],
-    taskEdit:'',
+   taskItem:'',
+   date:''
   }
-  getTasks = (item) => {
-    item.id = uuidv4();
-    item.itemEdit= false;
-   const taskItem = this.state.task;
-   taskItem.push(item);
-  this.setState({task:taskItem})
+
+  handleChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+};
+
+handleSubmit = (event) =>{
+    event.preventDefault();
+    const {taskItem,date}= this.state;
+  this.setState((preve)=>{
+    preve.task.push({id:uuidv4(),task:taskItem,date:date,isComplite:false})
+    preve.taskItem=''
+    preve.date=''
+   return(preve)
+    // return({task: preve.task.push({id:uuidv4(),task:taskItem,date:date,isComplite:false})
+    })
   }
 
   toggleComplete=(index)=>{
@@ -33,26 +44,27 @@ this.setState({task:itemTask})
     });
     this.setState({ task: taskList });
   };
+
 updateTask = (id) => {
-  // const taskUpdate = this.state.task.filter((item)=>{
-  //   return item.id !==id
-  // })
+  const taskUpdate = this.state.task.filter((item)=>{
+    return item.id !==id
+  })
   const taskedit = this.state.task.find((item)=>{
     return item.id === id
-  
   })
-this.setState({taskEdit:taskedit})
-console.log(taskedit);
+this.setState({
+  task:taskUpdate,
+  taskItem:taskedit.task,
+  date:taskedit.date
+})
 }
 
-
 render(){
-  const {task , taskEdit} = this.state;
+  const {task , taskItem,date} = this.state;
   return (
     <div className="container">
-
      <h1 className="title">To Do  App</h1>
-     <AddToDo func={this.getTasks} taskEdit={taskEdit}/>
+     <AddToDo   handleChange={this.handleChange} task={taskItem} date={date} handleSubmit={this.handleSubmit}/>
      <ToDoList task={task} func={this.deleteTask} complite={this.toggleComplete}  updateTask={this.updateTask}/>
     </div>
   );
